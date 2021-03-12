@@ -1,0 +1,11 @@
+.mat-icon-button {
+    width: 100px !important;
+}
+
+.ul-bottom-sidebar{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+}

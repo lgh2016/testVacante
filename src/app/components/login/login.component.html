@@ -1,0 +1,39 @@
+<div class="image" >
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>
+            <form class="example-form" [formGroup]="loginForm" (ngSubmit)="send()"  style="justify-content: center;">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Usuario</mat-label>
+                  <input type="text" matInput formControlName="usuario" [errorStateMatcher]="matcher"
+                         placeholder="user" autocomplete="off" >
+                  
+                         <mat-error *ngIf="loginForm.controls['usuario'].hasError('usuario') && !loginForm.controls['contrasena'].hasError('required')">
+                            Please enter a valid usuario address
+                          </mat-error>
+                          <mat-error *ngIf="loginForm.controls['contrasena'].hasError">
+                            usuario is <strong>required</strong>
+                          </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                  <mat-label>contrasena</mat-label>
+                  <input type="password" matInput formControlName="contrasena" [errorStateMatcher]="matcher"
+                        autocomplete="off" >
+                  
+                  <mat-error *ngIf="loginForm.controls['contrasena'].hasError('contrasena') && !loginForm.controls['contrasena'].hasError('required')">
+                    Please enter a valid contrasena 
+                  </mat-error>
+                  <mat-error *ngIf="loginForm.controls['contrasena'].hasError">
+                    contrasena is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <button class="example-full-width" mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+              </form>
+        </mat-grid-tile>
+        
+      </mat-grid-list>
+
+</div>
